@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifoyage - Jibhi & Tirthan Valley Experience Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float-particle 20s infinite;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 83, 92, 0.9) 0%, rgba(33, 104, 105, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') center/cover no-repeat fixed;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 100px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 5em;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: 16px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5), 3px 3px 10px rgba(0,0,0,0.5);
+            animation: glow 3s ease-in-out infinite alternate;
+            background: linear-gradient(45deg, #fff, #a7f3d0, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite, glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255,255,255,0.3), 3px 3px 10px rgba(0,0,0,0.5); }
+            to { text-shadow: 0 0 40px rgba(167, 243, 208, 0.8), 0 0 60px rgba(167, 243, 208, 0.6), 3px 3px 10px rgba(0,0,0,0.5); }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            letter-spacing: 8px;
+            opacity: 0.95;
+            font-weight: 300;
+            animation: fadeIn 1.5s ease-out 0.3s backwards;
+        }
+
+        .destination {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            margin: 30px 0;
+            font-weight: 700;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+            line-height: 1.3;
+            animation: fadeIn 1.5s ease-out 0.6s backwards;
+            position: relative;
+        }
+
+        .destination::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #a7f3d0, transparent);
+            animation: expandWidth 2s ease-out 1s backwards;
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 200px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+            animation: fadeIn 1.5s ease-out 0.9s backwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            font-size: 2.5em;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            animation: fadeIn 1.5s ease-out 1.2s backwards;
+        }
+
+        .btn-contact {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3em;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.5);
+            border: 3px solid rgba(255,255,255,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-contact::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-contact:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 15px 45px rgba(255, 107, 107, 0.7);
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '\1F3D4\FE0F';
+            position: absolute;
+            font-size: 20em;
+            opacity: 0.02;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            animation: rotateIcon 30s linear infinite;
+        }
+
+        @keyframes rotateIcon {
+            from { transform: translate(-50%, -50%) rotate(-15deg); }
+            to { transform: translate(-50%, -50%) rotate(345deg); }
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title-main {
+            text-align: center;
+            color: #1a535c;
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title-main::before,
+        .section-title-main::after {
+            content: '✨';
+            position: absolute;
+            font-size: 0.5em;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .section-title-main::before {
+            left: -60px;
+            top: 0;
+        }
+
+        .section-title-main::after {
+            right: -60px;
+            top: 0;
+            animation-delay: 1s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 100%);
+            padding: 50px 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(26, 83, 92, 0.15), transparent);
+            transform: rotate(45deg);
+            transition: all 0.8s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(26, 83, 92, 0.35);
+            border-color: #a7f3d0;
+        }
+
+        .feature-icon {
+            font-size: 5em;
+            margin-bottom: 25px;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.15));
+            animation: iconFloat 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-card:hover .feature-icon {
+            animation: iconBounce 0.6s ease;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.2); }
+        }
+
+        .feature-title {
+            font-size: 1.6em;
+            margin-bottom: 18px;
+            color: #1a535c;
+            font-weight: 700;
+        }
+
+        .feature-desc {
+            color: #555;
+            line-height: 1.9;
+            font-weight: 300;
+            font-size: 1.05em;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #fff 0%, #f0fdf4 50%, #fff 100%);
+            position: relative;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 80px auto 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+            height: 400px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 83, 92, 0.3) 0%, rgba(255, 107, 107, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(26, 83, 92, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* What We Offer Section */
+        .what-we-offer {
+            padding: 140px 20px;
+            background: linear-gradient(135deg, rgba(26, 83, 92, 0.95) 0%, rgba(33, 104, 105, 0.92) 100%),
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80') center/cover fixed;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .what-we-offer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 107, 107, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(167, 243, 208, 0.2) 0%, transparent 50%);
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            margin-bottom: 40px;
+            font-weight: 900;
+            text-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+            animation: titleSlideIn 1s ease-out;
+        }
+
+        @keyframes titleSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-subtitle {
+            font-size: 1.6em;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 2;
+            opacity: 0.98;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+            animation: fadeIn 1.5s ease-out 0.5s backwards;
+        }
+
+        /* Itinerary Section */
+        .itinerary {
+            padding: 120px 20px;
+            background: linear-gradient(to bottom, #fff 0%, #f8f9fa 50%, #fff 100%);
+            position: relative;
+        }
+
+        .itinerary-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-card {
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,0.95) 100%);
+            border-radius: 30px;
+            padding: 60px;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+            position: relative;
+            border-left: 8px solid #1a535c;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(167, 243, 208, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .day-card:hover {
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(26, 83, 92, 0.3);
+            border-left-color: #ff6b6b;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-number {
+            background: linear-gradient(135deg, #1a535c 0%, #216869 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(26, 83, 92, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .day-card:hover .day-number {
+            transform: rotate(-5deg) scale(1.1);
+            box-shadow: 0 12px 35px rgba(26, 83, 92, 0.6);
+        }
+
+        .day-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4em;
+            color: #1a535c;
+            flex: 1;
+            font-weight: 700;
+        }
+
+        .day-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-card:hover .day-image {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(26, 83, 92, 0.3);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            padding-left: 60px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '\2728';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 2em;
+            animation: sparkleTimeline 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkleTimeline {
+            0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+
+        .time {
+            font-size: 1.5em;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .activity-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a535c;
+        }
+
+        .activity-desc {
+            color: #555;
+            line-height: 2.2;
+            font-size: 1.15em;
+            font-weight: 300;
+        }
+
+        .activity-list {
+            list-style: none;
+            margin-top: 25px;
+            background: linear-gradient(135deg, rgba(26, 83, 92, 0.08) 0%, rgba(167, 243, 208, 0.08) 100%);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(26, 83, 92, 0.1);
+        }
+
+        .activity-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            color: #444;
+            font-size: 1.1em;
+            line-height: 2;
+            transition: all 0.3s ease;
+        }
+
+        .activity-list li:hover {
+            color: #1a535c;
+            transform: translateX(5px);
+        }
+
+        .activity-list li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: #1a535c;
+            font-weight: bold;
+            font-size: 1.5em;
+            animation: checkPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes checkPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 142, 83, 0.15) 100%);
+            border-left: 6px solid #ff6b6b;
+            padding: 35px;
+            margin: 35px 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+        }
+
+        .highlight-box h4 {
+            color: #ff6b6b;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a535c 0%, #216869 100%);
+            color: white;
+            padding: 80px 20px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            font-weight: 900;
+            margin-bottom: 25px;
+            letter-spacing: 10px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .footer-contacts {
+            display: flex;
+            gap: 35px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .footer-contact {
+            font-size: 1.4em;
+            background: rgba(255,255,255,0.15);
+            padding: 15px 35px;
+            border-radius: 40px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .footer-contact:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 3px solid transparent;
+        }
+
+        .pricing-card.featured {
+            border-color: #ff6b6b;
+            transform: scale(1.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8em;
+            color: #1a535c;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .price {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin: 20px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .price-note {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05em;
+            color: #555;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Meal Section */
+        .meal-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+        }
+
+        .meal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+
+        .meal-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 3px solid #ffe5e5;
+        }
+
+        .meal-card.highlighted {
+            border-color: #ff6b6b;
+            background: linear-gradient(135deg, #fff 0%, #fff5f5 100%);
+        }
+
+        .meal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .meal-day {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1a535c;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .meal-list {
+            list-style: none;
+        }
+
+        .meal-list li {
+            padding: 12px 0;
+            font-size: 1.15em;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .meal-icon {
+            font-size: 1.5em;
+        }
+
+        /* Inclusions Section */
+        .inclusions-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .inclusions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 40px;
+        }
+
+        .inclusion-item {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #c8e6c9;
+        }
+
+        .inclusion-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            border-color: #4caf50;
+        }
+
+        .inclusion-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .inclusion-item h4 {
+            font-size: 1.3em;
+            color: #1a535c;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .inclusion-item p {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .ready-banner {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(76,175,80,0.3);
+        }
+
+        .ready-banner h3 {
+            color: white;
+            font-size: 2.5em;
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Exclusions Section */
+        .exclusions-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #fff8f0 0%, #ffe8cc 100%);
+        }
+
+        .exclusions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .exclusion-item {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #ffe8cc;
+        }
+
+        .exclusion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            border-color: #ff8e53;
+        }
+
+        .exclusion-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .exclusion-item p {
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .comparison-table-wrapper {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            overflow-x: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #1a535c 0%, #216869 100%);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 25px 20px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05em;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .shifoyage-col {
+            background: linear-gradient(135deg, #e8f5f7 0%, #d4f1f4 100%);
+            font-weight: 500;
+        }
+
+        .comparison-table tbody td:first-child {
+            font-weight: 600;
+            color: #1a535c;
+        }
+
+        /* Important Notes Section */
+        .notes-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe6b3 100%);
+        }
+
+        .note-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border-left: 8px solid #ffc107;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .note-card.booking {
+            border-left-color: #ff6b6b;
+        }
+
+        .note-icon {
+            font-size: 4em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .note-card h3 {
+            font-size: 2em;
+            color: #1a535c;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        .note-card p {
+            font-size: 1.15em;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .note-highlight {
+            font-weight: 600;
+            color: #ff6b6b !important;
+            font-size: 1.2em !important;
+            margin-top: 25px !important;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f5f3ff 0%, #e5deff 100%);
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 60px auto 40px;
+        }
+
+        .payment-card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 3px solid #e5deff;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+            border-color: #a78bfa;
+        }
+
+        .payment-card h3 {
+            font-size: 1.8em;
+            color: #1a535c;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .payment-details {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+        }
+
+        .payment-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .payment-value {
+            color: #1a535c;
+            font-weight: 500;
+            font-family: monospace;
+            font-size: 1.05em;
+        }
+
+        .payment-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .payment-note p {
+            font-size: 1.15em;
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        /* Vehicle Section */
+        .vehicle-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+        }
+
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .vehicle-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .vehicle-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .vehicle-card:hover .vehicle-image {
+            transform: scale(1.1);
+        }
+
+        .vehicle-card h3 {
+            font-size: 1.8em;
+            color: #1a535c;
+            padding: 25px 30px 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .vehicle-card p {
+            padding: 0 30px 30px;
+            color: #666;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        /* Stay Section */
+        .stay-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe5eb 100%);
+        }
+
+        .stay-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .stay-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .stay-card:hover {
+            transform: translateY(-8px) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .stay-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .stay-card:hover .stay-image {
+            transform: scale(1.1);
+        }
+
+        /* Scroll animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px 60px;
+                min-height: 100vh;
+            }
+
+            .logo {
+                font-size: 2.8em;
+                letter-spacing: 8px;
+            }
+
+            .destination {
+                font-size: 2.2em;
+            }
+
+            .subtitle, .tagline {
+                font-size: 1em;
+                letter-spacing: 3px;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .section-title-main {
+                font-size: 2.5em;
+            }
+
+            .day-title {
+                font-size: 1.6em;
+            }
+
+            .day-card {
+                padding: 30px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-contact {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .timeline-item {
+                padding-left: 40px;
+            }
+
+            .day-image {
+                height: 220px;
+            }
+
+            .pricing-grid, .meal-grid, .inclusions-grid, .exclusions-grid, .payment-grid, .vehicle-grid, .stay-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .comparison-table {
+                font-size: 0.85em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 8px;
+            }
+
+            .price {
+                font-size: 2.8em;
+            }
+
+            .ready-banner h3 {
+                font-size: 1.8em;
+            }
+
+            .note-card {
+                padding: 30px 20px;
+            }
+
+            .note-card h3 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles">
+            <div class="particle" style="width: 10px; height: 10px; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 8px; height: 8px; left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 12px; height: 12px; left: 30%; animation-delay: 4s;"></div>
+            <div class="particle" style="width: 6px; height: 6px; left: 40%; animation-delay: 1s;"></div>
+            <div class="particle" style="width: 10px; height: 10px; left: 50%; animation-delay: 3s;"></div>
+            <div class="particle" style="width: 8px; height: 8px; left: 60%; animation-delay: 5s;"></div>
+            <div class="particle" style="width: 12px; height: 12px; left: 70%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 10px; height: 10px; left: 80%; animation-delay: 4s;"></div>
+            <div class="particle" style="width: 8px; height: 8px; left: 90%; animation-delay: 1s;"></div>
+        </div>
+        <div class="hero-content">
+            <div class="logo">SHIFOYAGE</div>
+            <div class="subtitle">EXPERIENCE JOURNEY</div>
+            <div class="destination">Jibhi & Tirthan Valley</div>
+            <div class="tagline">FUN . CONNECTION . COMMUNITY . TRAVEL . BLISS</div>
+            <div class="contact-buttons">
+                <a href="tel:9893114556" class="btn-contact">&#128222; 9893114556</a>
+                <a href="tel:9990854146" class="btn-contact">&#128222; 9990854146</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">&#11015;</div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2 class="section-title-main">What We Offer</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#128666;</div>
+                    <div class="feature-title">24x7 Vehicle</div>
+                    <div class="feature-desc">Comfortable transportation throughout your journey</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#127968;</div>
+                    <div class="feature-title">Comfortable Stay</div>
+                    <div class="feature-desc">Cozy accommodations in serene locations</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128248;</div>
+                    <div class="feature-title">Professional Photographer</div>
+                    <div class="feature-desc">Capture every moment of your adventure</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#127869;&#65039;</div>
+                    <div class="feature-title">6 Meals Included</div>
+                    <div class="feature-desc">Delicious meals to fuel your journey</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="features-container">
+            <h2 class="section-title-main">Experience Jibhi & Tirthan Valley</h2>
+            <p style="text-align: center; font-size: 1.3em; color: #666; margin-top: 20px; font-weight: 300;">Discover the breathtaking beauty of the Himalayas</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Mountain Landscapes">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Jalori Pass</div>
+                        <p>10,800 ft above sea level</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=800&q=80" alt="Waterfalls">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Jibhi Waterfall</div>
+                        <p>Enchanting cascades</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800&q=80" alt="Forest Trails">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Cedar Forests</div>
+                        <p>Walk through pine paradise</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?w=800&q=80" alt="Serolsar Lake">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Serolsar Lake</div>
+                        <p>Sacred mountain lake</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80" alt="Tirthan Valley">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Tirthan River</div>
+                        <p>Pristine crystal waters</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Mountain Adventure">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Himalayan Sunrise</div>
+                        <p>Witness magical dawns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section class="what-we-offer">
+        <div class="hero-content">
+            <h2 class="section-title">Shifoyage's Special Activities</h2>
+            <p class="section-subtitle">AND EXPERIENCES THAT BREATHE LIFE INTO A LIFETIME OF MEMORIES</p>
+        </div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section class="itinerary">
+        <div class="itinerary-container">
+            <h2 class="section-title-main">Complete Journey Itinerary</h2>
+
+            <!-- Day 1 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 1</div>
+                    <div class="day-title">BHOPAL TO DELHI - The Journey Begins</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&q=80" alt="Road Trip" class="day-image">
+
+                <div class="timeline-item">
+                    <div class="time">04:45 AM - BHOPAL BYE BYE</div>
+                    <div class="activity-desc">
+                        Gather up at Rani Kamlapati Station, Bhopal. Let's kickstart the journey with lots of laughter and vibes!! &#128642;&#10024;
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">06:00 PM - HELLO DELHI</div>
+                    <div class="activity-desc">
+                        Hop on our super comfy Urbania/Traveller as we begin our overnight road trip to Jibhi with fun games, activities and full shifoyage vibes.
+                    </div>
+                    <ul class="activity-list">
+                        <li>Meet the Shifoyage team and your fellow co-travelers</li>
+                        <li>Participate in a unique "Evolve Circle" ice-breaker session to spark connections</li>
+                        <li>Reflective journaling activity: "What do I wish to evolve in me through this journey?"</li>
+                        <li>Begin your overnight journey to the mountains with music, soft conversations, and under-the-sky games that plant the seeds of connection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 2</div>
+                    <div class="day-title">Arrival & Grounding in Nature</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1200&q=80" alt="Jibhi Waterfall" class="day-image">
+
+                <div class="timeline-item">
+                    <div class="time">06:00 AM - Check-in & Freshen Up</div>
+                    <div class="activity-desc">
+                        Time to check in at our cozy hotel and freshen up. Let's step out to explore the magical vibes of Jibhi with Shifoyage special activities of course.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">11:30 AM - Jibhi Waterfall & Mini Thailand</div>
+                    <div class="activity-desc">
+                        Arrive in the serene valley of Jibhi, nestled amid cedar and pine forests. Enjoy a warm welcome followed by Grounding Meditation and breathwork to tune into the energy of the place.
+                    </div>
+                    <ul class="activity-list">
+                        <li>Visit the enchanting Jibhi Waterfall to soak in the calmness</li>
+                        <li>Explore Mini Thailand (if time permits)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">06:30 PM - Forest Flow Session</div>
+                    <ul class="activity-list">
+                        <li>Forest Flow Session: A mindful nature walk where you'll engage in light movement, silence, and nature-based reflections</li>
+                        <li>Journal Prompt: "What am I noticing in nature that reflects me?"</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>&#128155; Evening Spiritual Session</h4>
+                    <p style="line-height: 2; color: #555;">This night's Shifoyage session will be a spiritual immersion into unlearning false concepts and remembering the truth. Through reflective circles, soul-touching questions, movement, and shared silence - we will open doorways to:</p>
+                    <ul class="activity-list">
+                        <li>A deeper understanding of the stories we've believed about relationships</li>
+                        <li>A release of the pain that was never ours to carry</li>
+                        <li>A reconnection to what real, conscious connection feels like</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-style: italic; color: #666; font-size: 1.05em;">A gentle spiritual surgery - to heal the inner child's longing to be seen, loved, and accepted.</p>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 3</div>
+                    <div class="day-title">&#127956; Serolsar Trek + Soulful Dialogues</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?w=1200&q=80" alt="Serolsar Lake" class="day-image">
+
+                <div class="timeline-item">
+                    <div class="time">Early Morning - Sunrise Movement Session</div>
+                    <div class="activity-desc">
+                        Start your day with a refreshing Sunrise Movement Session - Yoga, stretches, and a connection circle.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">Drive to Jalori Pass | Trek to Serolsar Lake</div>
+                    <div class="activity-desc">
+                        After breakfast, drive to Jalori Pass, located at 10,800 ft above sea level. Begin your trek to Serolsar Lake with part of the trail in mindful silence.
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>&#127754; At Serolsar Lake:</h4>
+                    <ul class="activity-list">
+                        <li>Soak in the serenity and pay homage at the sacred Budhi Nagin Temple</li>
+                        <li>"Still Lake, Still Mind" - Meditation session by the lake</li>
+                        <li>Deep Group Discussion: Exploring select verses from the Gita + heartfelt talk on "What really matters in life today?"</li>
+                        <li>Create a Collective Nature Mandala using natural elements, symbolizing our individual uniqueness within unity</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">Evening - Tribe Tapestry Session</div>
+                    <div class="activity-desc">
+                        Return to our stay and freshen up.
+                    </div>
+                    <ul class="activity-list">
+                        <li>Share stories and jam on musical instruments</li>
+                        <li>Sing meaningful songs and groove to the rhythm of togetherness</li>
+                        <li>Dinner and cozy storytelling</li>
+                        <li>Gratitude journaling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 4</div>
+                    <div class="day-title">&#127807; Letting Go & Gathering Strength</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&q=80" alt="Tirthan River" class="day-image">
+
+                <div class="highlight-box">
+                    <h4>&#128329;&#65039; Early Morning - Adhyatmic Exploration of Life</h4>
+                    <p style="line-height: 2; color: #555;">As the first light of dawn touches the peaks, we gather for one of the most sacred sessions - an early morning dialogue with the soul.</p>
+                    <p style="margin-top: 15px; color: #555;">We dive deep into the timeless question: <strong>"Why do we suffer?"</strong></p>
+                    <p style="margin-top: 15px; font-style: italic; color: #666; font-size: 1.05em;">From a spiritual lens, we explore the root of suffering - not as pain, but as disconnection from our true nature. This session is about seeing life clearly and understanding suffering as a teacher pointing towards inner freedom.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">Post Breakfast - Journey to Tirthan Valley</div>
+                    <div class="activity-desc">
+                        Begin with gentle morning meditation and tea session. Check out and head towards Gushaini village by the pristine Tirthan river.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">Chhoie Waterfall - Release Ritual</div>
+                    <div class="activity-desc">
+                        Short trek to Chhoie Waterfall for powerful reflection activities:
+                    </div>
+                    <ul class="activity-list">
+                        <li>"Mirror Walk": Each participant walks silently and reflects on what they're letting go of</li>
+                        <li>Release Ritual: Write something you'd like to release on biodegradable paper and let the waterfall wash it away</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time">Post Lunch - Departure</div>
+                    <div class="activity-desc">
+                        Depart for Aut to board our vehicle back to Delhi.
+                    </div>
+                    <ul class="activity-list">
+                        <li>Bus Circle: Closing gratitude circle + sharing personal takeaways</li>
+                        <li>Travel back with soft music, meaningful conversations, and lots of hugs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 5</div>
+                    <div class="day-title">&#127750; Return & Rebirth</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80" alt="Journey Home" class="day-image">
+
+                <div class="timeline-item">
+                    <div class="time">Early Morning - Delhi Arrival</div>
+                    <div class="activity-desc">
+                        Arrive in Delhi early morning.
+                    </div>
+                    <ul class="activity-list">
+                        <li>Goodbye hugs and exchange of soul notes or letters (optional)</li>
+                        <li>Leave with an open heart, meaningful memories, and a Shifoyage tribe forever in your corner</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>&#10024; Trip Ends, Transformation Continues</h4>
+                    <p style="line-height: 2; color: #555; font-style: italic; font-size: 1.1em;">You return not just with photos, but with a renewed sense of self, deeper connections, and memories that will breathe life into your soul for years to come.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title-main">&#128176; Trip Pricing</h2>
+            <p class="section-subtitle">Choose Your Journey - Flexible Options for Every Traveler</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Bhopal Boarding</h3>
+                    <div class="price">&#8377;9,999</div>
+                    <p class="price-note">Per Person</p>
+                    <ul class="pricing-features">
+                        <li>&#10004; Pickup from Bhopal</li>
+                        <li>&#10004; 4 Nights Stay</li>
+                        <li>&#10004; All Mentioned Meals</li>
+                        <li>&#10004; All Activities & Experiences</li>
+                        <li>&#10004; Transportation Included</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Delhi - Luxury Urbania</h3>
+                    <div class="price">&#8377;8,999</div>
+                    <p class="price-note">Per Person</p>
+                    <ul class="pricing-features">
+                        <li>&#10004; Pickup from Delhi</li>
+                        <li>&#10004; Luxury Urbania Vehicle</li>
+                        <li>&#10004; 4 Nights Stay</li>
+                        <li>&#10004; All Mentioned Meals</li>
+                        <li>&#10004; All Activities & Experiences</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Delhi - Traveller</h3>
+                    <div class="price">&#8377;7,499</div>
+                    <p class="price-note">Per Person</p>
+                    <ul class="pricing-features">
+                        <li>&#10004; Pickup from Delhi</li>
+                        <li>&#10004; Comfortable Traveller</li>
+                        <li>&#10004; 4 Nights Stay</li>
+                        <li>&#10004; All Mentioned Meals</li>
+                        <li>&#10004; All Activities & Experiences</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meal Plan Section -->
+    <section class="meal-section">
+        <div class="container">
+            <h2 class="section-title-main">&#127860; Meal Plan</h2>
+            <p class="section-subtitle">5 Lip-Smacking Veg Meals + 1 Soulful Trek Snacks</p>
+
+            <div class="meal-grid">
+                <div class="meal-card">
+                    <div class="meal-day">Day 2</div>
+                    <ul class="meal-list">
+                        <li><span class="meal-icon">&#127859;</span> Breakfast</li>
+                        <li><span class="meal-icon">&#127869;</span> Dinner</li>
+                    </ul>
+                </div>
+
+                <div class="meal-card highlighted">
+                    <div class="meal-day">Day 3</div>
+                    <ul class="meal-list">
+                        <li><span class="meal-icon">&#127859;</span> Breakfast</li>
+                        <li><span class="meal-icon">&#127828;</span> Trek Snacks</li>
+                        <li><span class="meal-icon">&#127869;</span> Dinner</li>
+                    </ul>
+                </div>
+
+                <div class="meal-card">
+                    <div class="meal-day">Day 4</div>
+                    <ul class="meal-list">
+                        <li><span class="meal-icon">&#127859;</span> Breakfast</li>
+                        <li><span class="meal-icon">&#127857;</span> Lunch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; font-size: 1.1em; color: #666;">All meals are vegetarian and prepared with love to fuel your journey!</p>
+        </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section class="inclusions-section">
+        <div class="container">
+            <h2 class="section-title-main">&#128293; What's Included?</h2>
+            <p class="section-subtitle">The Ultimate Shifoyage Experience!</p>
+
+            <div class="inclusions-grid">
+                <div class="inclusion-item">
+                    <div class="inclusion-icon">&#128652;</div>
+                    <h4>All Transfers & Scenic Road Trips</h4>
+                    <p>In Luxury Urbania/Traveller Bus</p>
+                </div>
+                <div class="inclusion-item">
+                    <div class="inclusion-icon">&#127957;</div>
+                    <h4>4 Days | 5 Nights</h4>
+                    <p>With Shifoyage's transformative experience</p>
+                </div>
+                <div class="inclusion-item">
+                    <div class="inclusion-icon">&#127859;</div>
+                    <h4>5 Lip-Smacking Veg Meals</h4>
+                    <p>+ 1 Soulful Trek Snacks</p>
+                </div>
+                <div class="inclusion-item">
+                    <div class="inclusion-icon">&#127883;</div>
+                    <h4>Fun Challenges & Icebreaker Games</h4>
+                    <p>To ignite your spirit</p>
+                </div>
+                <div class="inclusion-item">
+                    <div class="inclusion-icon">&#128100;</div>
+                    <h4>Life-Changing Shifoyage Sessions</h4>
+                    <p>& Deep Discussions</p>
+                </div>
+                <div class="inclusion-item">
+                    <div class="inclusion-icon">&#127873;</div>
+                    <h4>Secret Surprises</h4>
+                    <p>& Unforgettable Moments to cherish</p>
+                </div>
+                <div class="inclusion-item">
+                    <div class="inclusion-icon">&#128101;</div>
+                    <h4>Expert Trip Leaders</h4>
+                    <p>& 24/7 Heartfelt Assistance</p>
+                </div>
+                <div class="inclusion-item">
+                    <div class="inclusion-icon">&#128293;</div>
+                    <h4>More Thrills, More Vibes</h4>
+                    <p>More Memories</p>
+                </div>
+            </div>
+
+            <div class="ready-banner">
+                <h3>&#10024; Ready to Experience It All? &#128640;</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Not Included Section -->
+    <section class="exclusions-section">
+        <div class="container">
+            <h2 class="section-title-main">&#9888; What's Not Included</h2>
+
+            <div class="exclusions-grid">
+                <div class="exclusion-item">
+                    <div class="exclusion-icon">&#127860;</div>
+                    <p>Meals not mentioned in the itinerary</p>
+                </div>
+                <div class="exclusion-item">
+                    <div class="exclusion-icon">&#128663;</div>
+                    <p>Any personal expenses or transportation beyond mentioned activities</p>
+                </div>
+                <div class="exclusion-item">
+                    <div class="exclusion-icon">&#9962;</div>
+                    <p>Entry fees to monuments or optional activities</p>
+                </div>
+                <div class="exclusion-item">
+                    <div class="exclusion-icon">&#128176;</div>
+                    <p>Anything not explicitly listed under inclusions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title-main">&#127775; Why Shifoyage?</h2>
+            <p class="section-subtitle">Experience the Difference - More Than Just a Trip</p>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="shifoyage-col">&#10024; Shifoyage</th>
+                            <th>Regular Travel Organizations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Community Focus</td>
+                            <td class="shifoyage-col">&#10004; Deep connections, vulnerability circles, soulful interactions</td>
+                            <td>&#10060; Transactional, surface-level interactions</td>
+                        </tr>
+                        <tr>
+                            <td>Spiritual Growth</td>
+                            <td class="shifoyage-col">&#10004; Guided meditations, self-reflection, journaling sessions</td>
+                            <td>&#10060; Rarely included</td>
+                        </tr>
+                        <tr>
+                            <td>Activities</td>
+                            <td class="shifoyage-col">&#10004; Bonfire jams, stargazing, storytelling, mindful experiences</td>
+                            <td>&#10060; Generic sightseeing only</td>
+                        </tr>
+                        <tr>
+                            <td>Accommodation</td>
+                            <td class="shifoyage-col">&#10004; Handpicked, cozy stays with soul and character</td>
+                            <td>&#10060; Often generic hotels</td>
+                        </tr>
+                        <tr>
+                            <td>Group Vibe</td>
+                            <td class="shifoyage-col">&#10004; Carefully curated groups, lifelong friendships</td>
+                            <td>&#10060; Random groups, no post-trip connection</td>
+                        </tr>
+                        <tr>
+                            <td>Value</td>
+                            <td class="shifoyage-col">&#10004; Memories + growth + community that lasts forever</td>
+                            <td>&#10060; Just ticking off destinations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Notes Section -->
+    <section class="notes-section">
+        <div class="container">
+            <h2 class="section-title-main">&#9888; Important Notes</h2>
+
+            <div class="note-card important">
+                <div class="note-icon">&#128197;</div>
+                <h3>Flexible Itinerary</h3>
+                <p>This itinerary is for reference only—timings and locations may change based on circumstances. Shifoyage reserves the right to modify the plan at its discretion to ensure the best experience for everyone.</p>
+                <p class="note-highlight">&#127757; Get ready for an unforgettable adventure! &#128640;&#10024;</p>
+            </div>
+
+            <div class="note-card booking">
+                <div class="note-icon">&#128203;</div>
+                <h3>Minimum Booking Requirement</h3>
+                <p><strong>Heads up, Shifoyagers!</strong></p>
+                <p>This trip is all set to roll with a minimum of 10 bookings. If, by any chance, we don't hit that number, no worries! Your full amount will be refunded within 2 days. But trust us, you wouldn't want to miss this one!</p>
+                <p class="note-highlight">Adventure, memories, and a whole lot of fun are waiting! So, book now or regret later!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <h2 class="section-title-main">&#128179; Payment Details</h2>
+            <p class="section-subtitle">Secure Your Spot - Easy Payment Options</p>
+
+            <div class="payment-grid">
+                <div class="payment-card">
+                    <h3>&#127974; Bank Transfer</h3>
+                    <div class="payment-details">
+                        <div class="payment-row">
+                            <span class="payment-label">Account Name:</span>
+                            <span class="payment-value">Shifoyage</span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">Account Number:</span>
+                            <span class="payment-value">50200089284621</span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">IFSC Code:</span>
+                            <span class="payment-value">HDFC0001626</span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">Bank:</span>
+                            <span class="payment-value">HDFC Bank</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-card">
+                    <h3>&#128241; UPI Payment</h3>
+                    <div class="payment-details">
+                        <div class="payment-row">
+                            <span class="payment-label">UPI ID:</span>
+                            <span class="payment-value">shifoyage@hdfcbank</span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">Phone Pay:</span>
+                            <span class="payment-value">9893114556</span>
+                        </div>
+                        <div class="payment-row">
+                            <span class="payment-label">Google Pay:</span>
+                            <span class="payment-value">9893114556</span>
+                        </div>
+                        <p style="margin-top: 20px; font-size: 0.95em; color: #666;">Scan QR code for instant payment</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-note">
+                <p>&#9888; Please share payment screenshot/receipt on WhatsApp after payment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Showcase Section -->
+    <section class="vehicle-section">
+        <div class="container">
+            <h2 class="section-title-main">&#128663; Luxury Travel Experience</h2>
+            <p class="section-subtitle">Comfort Meets Adventure - Premium Vehicles for Your Journey</p>
+
+            <div class="vehicle-grid">
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80" alt="Luxury Urbania" class="vehicle-image">
+                    <h3>Luxury Force Urbania</h3>
+                    <p>Spacious, comfortable seating with AC and modern amenities for a premium travel experience</p>
+                </div>
+                <div class="vehicle-card">
+                    <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800&q=80" alt="Comfortable Traveller" class="vehicle-image">
+                    <h3>Comfortable Traveller</h3>
+                    <p>Well-maintained vehicles ensuring a smooth and safe journey through the mountains</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stay Showcase Section -->
+    <section class="stay-section">
+        <div class="container">
+            <h2 class="section-title-main">&#127968; Handpicked Stays</h2>
+            <p class="section-subtitle">Cozy Accommodations That Feel Like Home</p>
+
+            <div class="stay-grid">
+                <div class="stay-card">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Mountain Stay 1" class="stay-image">
+                </div>
+                <div class="stay-card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Mountain Stay 2" class="stay-image">
+                </div>
+                <div class="stay-card">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80" alt="Mountain Stay 3" class="stay-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">SHIFOYAGE</div>
+            <p style="font-size: 1.2em; letter-spacing: 3px;">FUN . CONNECTION . COMMUNITY . TRAVEL . BLISS</p>
+
+            <div class="contact-info-section">
+                <h3 style="font-size: 1.5em; margin: 40px 0 20px; color: #a7f3d0;">Get In Touch</h3>
+                <div class="footer-contacts">
+                    <div class="footer-contact">&#128222; +91 9893114556</div>
+                    <div class="footer-contact">&#128222; +91 9990854146</div>
+                    <div class="footer-contact">&#128222; +91 8871139003</div>
+                </div>
+                <div class="footer-email">
+                    <p style="margin-top: 20px; font-size: 1.1em;">&#128231; contact@shifoyage.com</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 50px; opacity: 0.8; font-size: 1.1em;">&copy; 2024 Shifoyage. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
