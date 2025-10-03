@@ -1346,42 +1346,47 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 80px 20px 60px;
+                padding: 60px 15px 50px;
                 min-height: 100vh;
             }
 
             .logo {
-                font-size: 2.8em;
-                letter-spacing: 8px;
+                font-size: 2.2em;
+                letter-spacing: 6px;
             }
 
             .destination {
-                font-size: 2.2em;
+                font-size: 1.8em;
             }
 
             .subtitle, .tagline {
-                font-size: 1em;
-                letter-spacing: 3px;
+                font-size: 0.9em;
+                letter-spacing: 2px;
             }
 
             .section-title {
-                font-size: 2.5em;
+                font-size: 2em;
             }
 
             .section-title-main {
-                font-size: 2.5em;
+                font-size: 2em;
+            }
+
+            .section-subtitle {
+                font-size: 1em;
             }
 
             .day-title {
-                font-size: 1.6em;
+                font-size: 1.4em;
             }
 
             .day-card {
-                padding: 30px 20px;
+                padding: 25px 15px;
             }
 
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .gallery-grid {
@@ -1395,48 +1400,130 @@
 
             .btn-contact {
                 width: 100%;
-                max-width: 300px;
+                max-width: 280px;
+                font-size: 0.95em;
+                padding: 12px 25px;
             }
 
             .timeline-item {
-                padding-left: 40px;
+                padding-left: 30px;
+            }
+
+            .time {
+                font-size: 0.95em;
+            }
+
+            .activity-desc {
+                font-size: 0.95em;
+            }
+
+            .activity-list li {
+                font-size: 0.9em;
             }
 
             .day-image {
-                height: 220px;
+                height: 200px;
             }
 
             .pricing-grid, .meal-grid, .inclusions-grid, .exclusions-grid, .payment-grid, .vehicle-grid, .stay-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pricing-card, .meal-card, .inclusion-item, .exclusion-item, .payment-card {
+                padding: 25px 20px;
             }
 
             .pricing-card.featured {
                 transform: scale(1);
             }
 
+            .pricing-card h3, .meal-day, .inclusion-item h4 {
+                font-size: 1.4em;
+            }
+
+            .price {
+                font-size: 2.5em;
+            }
+
+            .comparison-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
             .comparison-table {
-                font-size: 0.85em;
+                font-size: 0.75em;
+                min-width: 600px;
             }
 
             .comparison-table th,
             .comparison-table td {
-                padding: 12px 8px;
+                padding: 10px 6px;
             }
 
-            .price {
-                font-size: 2.8em;
-            }
-
-            .ready-banner h3 {
-                font-size: 1.8em;
-            }
-
-            .note-card {
+            .ready-banner {
                 padding: 30px 20px;
             }
 
+            .ready-banner h3 {
+                font-size: 1.5em;
+            }
+
+            .note-card {
+                padding: 25px 15px;
+            }
+
+            .note-icon {
+                font-size: 3em;
+            }
+
             .note-card h3 {
-                font-size: 1.6em;
+                font-size: 1.5em;
+            }
+
+            .note-card p {
+                font-size: 1em;
+            }
+
+            .payment-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .payment-label, .payment-value {
+                font-size: 0.95em;
+            }
+
+            .vehicle-card h3, .inclusion-icon, .exclusion-icon {
+                font-size: 1.3em;
+            }
+
+            .vehicle-image, .stay-image {
+                height: 200px;
+            }
+
+            .footer-logo {
+                font-size: 2.5em;
+            }
+
+            .footer-contact {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Fix horizontal scroll issues */
+            body {
+                overflow-x: hidden;
+            }
+
+            .section-title-main, .section-title {
+                word-wrap: break-word;
+                hyphens: auto;
             }
         }
     </style>
