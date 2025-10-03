@@ -1337,6 +1337,140 @@
             transform: scale(1.1);
         }
 
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 83, 92, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 3px;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a535c 0%, #216869 100%);
+            padding: 80px 20px 20px;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-link {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            margin: 5px 0;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-link:hover, .nav-link:active {
+            background: rgba(255,255,255,0.1);
+            border-left-color: #a7f3d0;
+            transform: translateX(5px);
+        }
+
+        /* Collapsible Day Cards */
+        .day-card {
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,249,250,0.95) 100%);
+            border-radius: 30px;
+            padding: 60px;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+            position: relative;
+            border-left: 8px solid #1a535c;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .day-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .day-content.active {
+            max-height: 5000px;
+        }
+
+        .day-toggle {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
+        .day-content.active + .day-header .toggle-icon,
+        .day-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
         /* Scroll animations */
         .fade-in-up {
             opacity: 0;
@@ -1345,9 +1479,25 @@
         }
 
         @media (max-width: 768px) {
+            .mobile-nav {
+                display: block;
+            }
+
+            body {
+                padding-top: 60px;
+            }
+
             .hero {
                 padding: 60px 15px 50px;
                 min-height: 100vh;
+            }
+
+            .day-card {
+                padding: 25px 15px;
+            }
+
+            .day-header {
+                cursor: pointer;
             }
 
             .logo {
@@ -1529,8 +1679,30 @@
     </style>
 </head>
 <body>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="nav-container">
+            <div class="nav-logo">SHIFOYAGE</div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#gallery" class="nav-link">Gallery</a>
+            <a href="#itinerary" class="nav-link">Itinerary</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#inclusions" class="nav-link">Inclusions</a>
+            <a href="#stay" class="nav-link">Stay</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="particles">
             <div class="particle" style="width: 10px; height: 10px; left: 10%; animation-delay: 0s;"></div>
             <div class="particle" style="width: 8px; height: 8px; left: 20%; animation-delay: 2s;"></div>
@@ -1556,7 +1728,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="features-container">
             <h2 class="section-title-main">What We Offer</h2>
             <div class="features-grid">
@@ -1585,7 +1757,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery">
+    <section class="gallery" id="gallery">
         <div class="features-container">
             <h2 class="section-title-main">Experience Jibhi & Tirthan Valley</h2>
             <p style="text-align: center; font-size: 1.3em; color: #666; margin-top: 20px; font-weight: 300;">Discover the breathtaking beauty of the Himalayas</p>
@@ -1645,16 +1817,17 @@
     </section>
 
     <!-- Itinerary Section -->
-    <section class="itinerary">
+    <section class="itinerary" id="itinerary">
         <div class="itinerary-container">
             <h2 class="section-title-main">Complete Journey Itinerary</h2>
 
             <!-- Day 1 -->
             <div class="day-card">
-                <div class="day-header">
+                <div class="day-header day-toggle" onclick="toggleDay(this)">
                     <div class="day-number">Day 1</div>
-                    <div class="day-title">BHOPAL TO DELHI - The Journey Begins</div>
+                    <div class="day-title">BHOPAL TO DELHI - The Journey Begins <span class="toggle-icon">▼</span></div>
                 </div>
+                <div class="day-content">
                 <img src="images/cottage-exterior-daytime.webp" alt="Jibhi Property" class="day-image" loading="lazy">
 
                 <div class="timeline-item">
@@ -1676,14 +1849,16 @@
                         <li>Begin your overnight journey to the mountains with music, soft conversations, and under-the-sky games that plant the seeds of connection</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <!-- Day 2 -->
             <div class="day-card">
-                <div class="day-header">
+                <div class="day-header day-toggle" onclick="toggleDay(this)">
                     <div class="day-number">Day 2</div>
-                    <div class="day-title">Arrival & Grounding in Nature</div>
+                    <div class="day-title">Arrival & Grounding in Nature <span class="toggle-icon">▼</span></div>
                 </div>
+                <div class="day-content">
                 <img src="images/waterfall-natural-attraction.webp" alt="Jibhi Waterfall" class="day-image" loading="lazy">
 
                 <div class="timeline-item">
@@ -1722,14 +1897,16 @@
                     </ul>
                     <p style="margin-top: 20px; font-style: italic; color: #666; font-size: 1.05em;">A gentle spiritual surgery - to heal the inner child's longing to be seen, loved, and accepted.</p>
                 </div>
+                </div>
             </div>
 
             <!-- Day 3 -->
             <div class="day-card">
-                <div class="day-header">
+                <div class="day-header day-toggle" onclick="toggleDay(this)">
                     <div class="day-number">Day 3</div>
-                    <div class="day-title">&#127956; Serolsar Trek + Soulful Dialogues</div>
+                    <div class="day-title">&#127956; Serolsar Trek + Soulful Dialogues <span class="toggle-icon">▼</span></div>
                 </div>
+                <div class="day-content">
                 <img src="images/serolsar-lake-sunset.webp" alt="Serolsar Lake" class="day-image" loading="lazy">
 
                 <div class="timeline-item">
@@ -1768,14 +1945,16 @@
                         <li>Gratitude journaling</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <!-- Day 4 -->
             <div class="day-card">
-                <div class="day-header">
+                <div class="day-header day-toggle" onclick="toggleDay(this)">
                     <div class="day-number">Day 4</div>
-                    <div class="day-title">&#127807; Letting Go & Gathering Strength</div>
+                    <div class="day-title">&#127807; Letting Go & Gathering Strength <span class="toggle-icon">▼</span></div>
                 </div>
+                <div class="day-content">
                 <img src="images/river-cave-emerald-water.webp" alt="Tirthan River" class="day-image" loading="lazy">
 
                 <div class="highlight-box">
@@ -1813,14 +1992,16 @@
                         <li>Travel back with soft music, meaningful conversations, and lots of hugs</li>
                     </ul>
                 </div>
+                </div>
             </div>
 
             <!-- Day 5 -->
             <div class="day-card">
-                <div class="day-header">
+                <div class="day-header day-toggle" onclick="toggleDay(this)">
                     <div class="day-number">Day 5</div>
-                    <div class="day-title">&#127750; Return & Rebirth</div>
+                    <div class="day-title">&#127750; Return & Rebirth <span class="toggle-icon">▼</span></div>
                 </div>
+                <div class="day-content">
                 <img src="images/cottage-stone-pathway.webp" alt="Journey Home" class="day-image" loading="lazy">
 
                 <div class="timeline-item">
@@ -1838,12 +2019,13 @@
                     <h4>&#10024; Trip Ends, Transformation Continues</h4>
                     <p style="line-height: 2; color: #555; font-style: italic; font-size: 1.1em;">You return not just with photos, but with a renewed sense of self, deeper connections, and memories that will breathe life into your soul for years to come.</p>
                 </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="pricing-section">
+    <section class="pricing-section" id="pricing">
         <div class="container">
             <h2 class="section-title-main">&#128176; Trip Pricing</h2>
             <p class="section-subtitle">Choose Your Journey - Flexible Options for Every Traveler</p>
@@ -1930,7 +2112,7 @@
     </section>
 
     <!-- What's Included Section -->
-    <section class="inclusions-section">
+    <section class="inclusions-section" id="inclusions">
         <div class="container">
             <h2 class="section-title-main">&#128293; What's Included?</h2>
             <p class="section-subtitle">The Ultimate Shifoyage Experience!</p>
@@ -2161,7 +2343,7 @@
     </section>
 
     <!-- Stay Showcase Section -->
-    <section class="stay-section">
+    <section class="stay-section" id="stay">
         <div class="container">
             <h2 class="section-title-main">&#127968; Handpicked Stays</h2>
             <p class="section-subtitle">Cozy Accommodations That Feel Like Home</p>
@@ -2181,7 +2363,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="footer-content">
             <div class="footer-logo">SHIFOYAGE</div>
             <p style="font-size: 1.2em; letter-spacing: 3px;">FUN . CONNECTION . COMMUNITY . TRAVEL . BLISS</p>
@@ -2201,5 +2383,73 @@
             <p style="margin-top: 50px; opacity: 0.8; font-size: 1.1em;">&copy; 2024 Shifoyage. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 60;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Toggle Day Content
+        function toggleDay(element) {
+            const dayCard = element.closest('.day-card');
+            const dayContent = dayCard.querySelector('.day-content');
+            const toggleIcon = element.querySelector('.toggle-icon');
+
+            if (window.innerWidth <= 768) {
+                dayContent.classList.toggle('active');
+                element.classList.toggle('active');
+            }
+        }
+
+        // Auto-expand first day on mobile
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                const firstDay = document.querySelector('.day-card .day-content');
+                if (firstDay) {
+                    firstDay.classList.add('active');
+                    firstDay.previousElementSibling.classList.add('active');
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.querySelectorAll('.day-content').forEach(content => {
+                    content.classList.add('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
