@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to WebP Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .drop-zone {
+            border: 3px dashed #ccc;
+            padding: 50px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .drop-zone.dragover {
+            border-color: #4CAF50;
+            background: #f0f0f0;
+        }
+        .progress {
+            margin: 20px 0;
+        }
+        .log {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-item {
+            margin: 5px 0;
+        }
+        .success { color: green; }
+        .error { color: red; }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .settings {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .settings label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JPG to WebP Converter</h1>
+
+    <div class="settings">
+        <label>
+            Quality:
+            <input type="range" id="quality" min="1" max="100" value="85">
+            <span id="qualityValue">85</span>
+        </label>
+    </div>
+
+    <div class="drop-zone" id="dropZone">
+        <p>Drag and drop JPG images here or click to select</p>
+        <input type="file" id="fileInput" multiple accept="image/jpeg,image/jpg" style="display: none;">
+    </div>
+
+    <button id="convertBtn" style="display: none;">Convert to WebP</button>
+    <button id="downloadBtn" style="display: none;">Download All</button>
+
+    <div class="progress" id="progress"></div>
+    <div class="log" id="log"></div>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const convertBtn = document.getElementById('convertBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const log = document.getElementById('log');
+        const progress = document.getElementById('progress');
+        const qualitySlider = document.getElementById('quality');
+        const qualityValue = document.getElementById('qualityValue');
+
+        let selectedFiles = [];
+        let convertedFiles = [];
+
+        qualitySlider.addEventListener('input', (e) => {
+            qualityValue.textContent = e.target.value;
+        });
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            selectedFiles = Array.from(files).filter(f => f.type === 'image/jpeg');
+            addLog(`Selected ${selectedFiles.length} JPG images`, 'success');
+            convertBtn.style.display = selectedFiles.length > 0 ? 'inline-block' : 'none';
+        }
+
+        convertBtn.addEventListener('click', async () => {
+            convertedFiles = [];
+            const quality = qualitySlider.value / 100;
+
+            for (let i = 0; i < selectedFiles.length; i++) {
+                const file = selectedFiles[i];
+                progress.textContent = `Converting ${i + 1}/${selectedFiles.length}: ${file.name}`;
+
+                try {
+                    const webpBlob = await convertToWebP(file, quality);
+                    const newFileName = file.name.replace(/\.jpe?g$/i, '.webp');
+                    convertedFiles.push({ blob: webpBlob, name: newFileName });
+                    addLog(`✓ Converted: ${file.name} -> ${newFileName}`, 'success');
+                } catch (error) {
+                    addLog(`✗ Failed: ${file.name} - ${error.message}`, 'error');
+                }
+            }
+
+            progress.textContent = `Conversion complete! ${convertedFiles.length}/${selectedFiles.length} images converted`;
+            downloadBtn.style.display = 'inline-block';
+        });
+
+        async function convertToWebP(file, quality) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    img.src = e.target.result;
+                };
+
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+
+                    canvas.toBlob((blob) => {
+                        if (blob) {
+                            resolve(blob);
+                        } else {
+                            reject(new Error('Failed to convert image'));
+                        }
+                    }, 'image/webp', quality);
+                };
+
+                img.onerror = () => reject(new Error('Failed to load image'));
+                reader.readAsDataURL(file);
+            });
+        }
+
+        downloadBtn.addEventListener('click', () => {
+            convertedFiles.forEach(({ blob, name }) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = name;
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+            addLog(`Downloaded ${convertedFiles.length} WebP images`, 'success');
+        });
+
+        function addLog(message, type = '') {
+            const item = document.createElement('div');
+            item.className = `log-item ${type}`;
+            item.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            log.appendChild(item);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        addLog('Ready to convert images. Drop JPG files or click the drop zone.');
+    </script>
+</body>
+</html>

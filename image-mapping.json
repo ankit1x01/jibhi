@@ -1,0 +1,190 @@
+{
+  "images": [
+    {
+      "filename": "bedroom-rustic-interior.webp",
+      "description": "Cozy rustic bedroom with green curtains and traditional decor",
+      "category": "Accommodation",
+      "landingPageSection": "Rooms/Accommodation Gallery",
+      "usageRecommendation": "Perfect for showcasing room interiors and accommodation quality",
+      "keywords": ["bedroom", "interior", "rustic", "cozy", "accommodation"]
+    },
+    {
+      "filename": "cottage-exterior-daytime.webp",
+      "description": "Traditional cottage surrounded by lush green gardens in daylight",
+      "category": "Property",
+      "landingPageSection": "Hero Section / Property Overview",
+      "usageRecommendation": "Ideal for main hero image or property showcase section",
+      "keywords": ["cottage", "exterior", "property", "garden", "daytime"]
+    },
+    {
+      "filename": "garden-outdoor-seating.webp",
+      "description": "Outdoor seating area in garden with guests enjoying the space",
+      "category": "Amenities",
+      "landingPageSection": "Activities/Amenities Section",
+      "usageRecommendation": "Great for highlighting outdoor spaces and social areas",
+      "keywords": ["garden", "outdoor", "seating", "activities", "guests"]
+    },
+    {
+      "filename": "property-garden-view.webp",
+      "description": "Garden view from property showing natural surroundings",
+      "category": "Property",
+      "landingPageSection": "Gallery / Views Section",
+      "usageRecommendation": "Showcase the natural environment and garden areas",
+      "keywords": ["garden", "view", "nature", "property", "landscape"]
+    },
+    {
+      "filename": "garden-flowers-closeup.webp",
+      "description": "Beautiful orange lilies in the garden with mountain backdrop",
+      "category": "Nature",
+      "landingPageSection": "Nature/Garden Section",
+      "usageRecommendation": "Add aesthetic appeal and showcase natural beauty",
+      "keywords": ["flowers", "garden", "nature", "beauty", "details"]
+    },
+    {
+      "filename": "cottage-exterior-night.webp",
+      "description": "Illuminated cottage at night with atmospheric lighting",
+      "category": "Property",
+      "landingPageSection": "Hero Section / Image Carousel",
+      "usageRecommendation": "Excellent for evening ambiance and romantic appeal",
+      "keywords": ["cottage", "night", "lighting", "ambiance", "evening"]
+    },
+    {
+      "filename": "hiking-trail-mountains.webp",
+      "description": "Person with dog hiking on mountain trail with scenic views",
+      "category": "Activities",
+      "landingPageSection": "Activities/Things to Do Section",
+      "usageRecommendation": "Perfect for promoting outdoor activities and hiking",
+      "keywords": ["hiking", "trail", "mountains", "activities", "outdoor"]
+    },
+    {
+      "filename": "cottage-stone-pathway.webp",
+      "description": "Stone pathway leading to cottage with garden landscaping",
+      "category": "Property",
+      "landingPageSection": "Property Features / Gallery",
+      "usageRecommendation": "Highlight property access and landscaping details",
+      "keywords": ["pathway", "cottage", "entrance", "landscaping", "property"]
+    },
+    {
+      "filename": "jibhi-valley-aerial-view.webp",
+      "description": "Aerial view of Jibhi valley with river and terraced fields",
+      "category": "Location",
+      "landingPageSection": "Location/Destination Section",
+      "usageRecommendation": "Showcase the destination and valley beauty",
+      "keywords": ["jibhi", "valley", "aerial", "landscape", "destination"]
+    },
+    {
+      "filename": "river-mountain-landscape.webp",
+      "description": "Mountain river landscape with dramatic cloudy skies",
+      "category": "Location",
+      "landingPageSection": "Location/Nearby Attractions",
+      "usageRecommendation": "Highlight natural scenery and proximity to river",
+      "keywords": ["river", "mountains", "landscape", "nature", "scenery"]
+    },
+    {
+      "filename": "mountain-river-scenic-view.webp",
+      "description": "Scenic mountain and river view with forest landscape",
+      "category": "Location",
+      "landingPageSection": "Location/Surrounding Beauty",
+      "usageRecommendation": "Show the natural environment around the property",
+      "keywords": ["mountains", "river", "scenic", "forest", "landscape"]
+    },
+    {
+      "filename": "waterfall-natural-attraction.webp",
+      "description": "Beautiful waterfall cascading through lush green forest",
+      "category": "Attractions",
+      "landingPageSection": "Nearby Attractions / Things to See",
+      "usageRecommendation": "Promote nearby natural attractions and sightseeing",
+      "keywords": ["waterfall", "attraction", "nature", "forest", "sightseeing"]
+    },
+    {
+      "filename": "serolsar-lake-sunset.webp",
+      "description": "Serolsar Lake during golden hour with autumn trees",
+      "category": "Attractions",
+      "landingPageSection": "Nearby Attractions / Day Trips",
+      "usageRecommendation": "Highlight popular nearby destination for visitors",
+      "keywords": ["serolsar", "lake", "sunset", "attraction", "autumn"]
+    },
+    {
+      "filename": "serolsar-lake-daytime.webp",
+      "description": "Serolsar Lake aerial view with turquoise water in daylight",
+      "category": "Attractions",
+      "landingPageSection": "Nearby Attractions / Day Trips",
+      "usageRecommendation": "Show the lake's beauty and accessibility",
+      "keywords": ["serolsar", "lake", "daytime", "turquoise", "attraction"]
+    },
+    {
+      "filename": "serolsar-temple-lake.webp",
+      "description": "Temple at Serolsar Lake with mountain backdrop",
+      "category": "Attractions",
+      "landingPageSection": "Nearby Attractions / Cultural Sites",
+      "usageRecommendation": "Highlight cultural and spiritual attractions nearby",
+      "keywords": ["temple", "serolsar", "lake", "cultural", "spiritual"]
+    },
+    {
+      "filename": "river-cave-emerald-water.webp",
+      "description": "Emerald green water flowing through natural cave formation",
+      "category": "Attractions",
+      "landingPageSection": "Hidden Gems / Adventure Activities",
+      "usageRecommendation": "Showcase unique natural formations and adventure spots",
+      "keywords": ["cave", "river", "emerald", "adventure", "unique"]
+    },
+    {
+      "filename": "cave-stream-natural-pool.webp",
+      "description": "Natural pool inside cave with crystal clear emerald water",
+      "category": "Attractions",
+      "landingPageSection": "Hidden Gems / Natural Wonders",
+      "usageRecommendation": "Highlight unique natural attractions for exploration",
+      "keywords": ["cave", "pool", "natural", "crystal", "exploration"]
+    }
+  ],
+  "landingPageLayout": {
+    "heroSection": {
+      "primaryImage": "cottage-exterior-daytime.webp",
+      "alternativeImages": ["cottage-exterior-night.webp"]
+    },
+    "accommodationSection": {
+      "images": ["bedroom-rustic-interior.webp"]
+    },
+    "propertyFeaturesSection": {
+      "images": [
+        "cottage-stone-pathway.webp",
+        "property-garden-view.webp"
+      ]
+    },
+    "amenitiesSection": {
+      "images": [
+        "garden-outdoor-seating.webp",
+        "garden-flowers-closeup.webp"
+      ]
+    },
+    "locationSection": {
+      "images": [
+        "jibhi-valley-aerial-view.webp",
+        "river-mountain-landscape.webp",
+        "mountain-river-scenic-view.webp"
+      ]
+    },
+    "activitiesSection": {
+      "images": ["hiking-trail-mountains.webp"]
+    },
+    "nearbyAttractionsSection": {
+      "images": [
+        "waterfall-natural-attraction.webp",
+        "serolsar-lake-sunset.webp",
+        "serolsar-lake-daytime.webp",
+        "serolsar-temple-lake.webp",
+        "river-cave-emerald-water.webp",
+        "cave-stream-natural-pool.webp"
+      ]
+    }
+  },
+  "imageCategories": {
+    "Property": ["cottage-exterior-daytime.webp", "cottage-exterior-night.webp", "cottage-stone-pathway.webp", "property-garden-view.webp"],
+    "Accommodation": ["bedroom-rustic-interior.webp"],
+    "Amenities": ["garden-outdoor-seating.webp", "garden-flowers-closeup.webp"],
+    "Activities": ["hiking-trail-mountains.webp"],
+    "Location": ["jibhi-valley-aerial-view.webp", "river-mountain-landscape.webp", "mountain-river-scenic-view.webp"],
+    "Attractions": ["waterfall-natural-attraction.webp", "serolsar-lake-sunset.webp", "serolsar-lake-daytime.webp", "serolsar-temple-lake.webp", "river-cave-emerald-water.webp", "cave-stream-natural-pool.webp"],
+    "Nature": ["garden-flowers-closeup.webp"]
+  }
+}
